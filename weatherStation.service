@@ -1,0 +1,14 @@
+# Place in /etc/systemd/system/weatherStation.service  
+[Unit]
+Description=Weather Station Python Script
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/user/weatherStation.py
+WorkingDirectory=/home/user
+Restart=always
+User=user
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
